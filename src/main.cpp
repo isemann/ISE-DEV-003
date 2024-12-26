@@ -302,7 +302,7 @@ void bme680_get()
   }
 
   pres = BARO.readPressure();
-  lux = readVBAT();
+  lux = readVBAT()/1000; // in V
 
   sprintf(payload, "%.2f:%.2f:%.2f:%.2f", temp, hum, pres, lux);
   uint32_t h = strlen(payload);
